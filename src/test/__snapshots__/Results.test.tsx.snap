@@ -1,0 +1,40 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Results > should renders correctly with no stus 1`] = `
+<DocumentFragment>
+  <div
+    class="search"
+  >
+    <h1>
+      No Data
+    </h1>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Results > should renders correctly with stus 1`] = `
+<DocumentFragment>
+  <div
+    class="search"
+  >
+    <div>
+      <div
+        class="info"
+      >
+        <h1>
+          John Doe
+        </h1>
+      </div>
+    </div>
+    <div>
+      <div
+        class="info"
+      >
+        <h1>
+          Jane Mike
+        </h1>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
