@@ -1,0 +1,58 @@
+# yaml-language-server: $schema=https://www.artillery.io/schema.json
+$schema: https://www.artillery.io/schema.json
+config:
+  target: "http://asciiart.artillery.io:8080"
+  phases:
+    # stage 1 预热
+    - duration: 60
+      arrivalRate: 10
+      name: "Warmup Phase"
+
+    # stage 2 逐步施压
+    - duration: 60
+      arrivalRate: 50
+      rampTo: 500
+      name: "Stress Phase"
+
+    # stage 3 极限压力
+    - duration: 120
+      arrivalRate: 1000
+      rampTo: 1000
+      name: "Peak Phase"
+
+    # stage 4 超限测试
+    - duration: 120
+      arrivalRate: 1500
+      rampTo: 1500
+      name: "Overload Phase"
+
+    # stage 5 恢复
+    - duration: 60
+      arrivalRate: 2000
+      rampTo: 10
+      name: "Recovery Phase"
+
+  http:
+    timeout: 30
+    pool: 200
+    maxSockets: 500
+
+  plugins:
+    metrics-by-endpoint: {}
+    publish-metrics:
+      - type: statsd
+        host: localhost
+        port: 8125
+
+
+scenarios:
+  - name: "Artillery Stress Test"
+    flow:
+      - loop:
+          - get:
+              url: "/dino"
+          - get:
+              url: "/pony"
+          - get:
+              url: "/armadillo"
+        count: 100

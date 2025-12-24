@@ -7,8 +7,8 @@ const Carousel: FC<PropsType> = (props) => {
   const {images = ["http://pets-images.dev-apis.com/pets/0.jpg"]} = props;
   const [active, setActive] = useState<number>(0);
   const handleIndexClick = (event: MouseEvent) => {
-    const {index = 0} = (event.target as HTMLImageElement).dataset;
-    setActive(+index);
+    const {index} = (event.target as HTMLImageElement).dataset;
+    setActive(+index!);
   };
   return (
     <div className="carousel">

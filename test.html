@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div onclick="console.log('clickdiv')" id="app" style="cursor: pointer;">111</div>
+  <canvas style="position: fixed; top: 0; left: 0;" id="canvas"></canvas>
+  <h2 onclick="console.log('clickh')" style="cursor: pointer;">333</h2>
+  <script>
+    const c = document.getElementById('canvas');
+    const ctx = c.getContext('2d');
+    console.log(ctx);
+    // 圆弧
+    ctx.beginPath();
+    var p = new Path2D("M10 10 h 80 v 80 h -80 Z");
+    // ctx.closePath();
+    ctx.stroke(p);
+    var p2 = new Path2D("M100 100 h 80 v 80 h -80 Z");
+    // ctx.closePath();
+    ctx.globalAlpha = 0.3;
+    ctx.stroke(p2);
+  </script>
+</body>
+</html>

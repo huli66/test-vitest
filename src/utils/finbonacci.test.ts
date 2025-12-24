@@ -9,11 +9,24 @@ describe('fibonacci', () => {
     expect(fibonacci(1)).toBe(1);
   });
 
-  // 添加一个边界情况测试用例和异常情况测试用例
+  // 测试递归调用（n > 1 的情况）
+  it('should return correct value for n > 1', () => {
+    expect(fibonacci(2)).toBe(1);  // fibonacci(1) + fibonacci(0) = 1 + 0 = 1
+    expect(fibonacci(3)).toBe(2);  // fibonacci(2) + fibonacci(1) = 1 + 1 = 2
+    expect(fibonacci(4)).toBe(3);  // fibonacci(3) + fibonacci(2) = 2 + 1 = 3
+    expect(fibonacci(5)).toBe(5);  // fibonacci(4) + fibonacci(3) = 3 + 2 = 5
+    expect(fibonacci(6)).toBe(8);  // fibonacci(5) + fibonacci(4) = 5 + 3 = 8
+  });
+
+  // 异常情况测试用例
   it('should throw an error when num is negative', () => {
     expect(() => fibonacci(-1)).toThrow('Input must be a non-negative integer');
   });
   it('should throw an error when num is not a number', () => {
     expect(() => fibonacci('1' as unknown as number)).toThrow('Input must be a non-negative integer');
+  });
+  it('should throw an error when num is not an integer', () => {
+    expect(() => fibonacci(1.5)).toThrow('Input must be a non-negative integer');
+    expect(() => fibonacci(2.7)).toThrow('Input must be a non-negative integer');
   });
 });

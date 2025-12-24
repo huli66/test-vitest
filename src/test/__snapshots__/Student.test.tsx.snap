@@ -1,0 +1,33 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Carousel > lets users click on thumbnails to make them the hero 1`] = `
+<DocumentFragment>
+  <div
+    class="carousel"
+  >
+    <img
+      alt="animal"
+      data-testid="hero"
+      src="https://image.smoba.qq.com/Picture/HeroOriginalPainting/3015203.jpg"
+    />
+    <div
+      class="carousel-smaller"
+    >
+      <img
+        alt="animal thumbnail"
+        class="active"
+        data-index="0"
+        data-testid="thumbnail0"
+        src="https://image.smoba.qq.com/Picture/HeroOriginalPainting/3015203.jpg"
+      />
+      <img
+        alt="animal thumbnail"
+        class=""
+        data-index="1"
+        data-testid="thumbnail1"
+        src="https://image.smoba.qq.com/Picture/HeroOriginalPainting/3015202.jpg"
+      />
+    </div>
+  </div>
+</DocumentFragment>
+`;
